@@ -1,0 +1,8 @@
+{
+  "name": "find-a-classroom-algorithms",
+  "version": "0.0.0",
+  "description": "To transform an array of a course objects into a collections with classrooms",
+  "main": "index.js",
+  "author": "Lawrence Pan <lawrencefeipan@gmail.com>",
+  "license": "MIT"
+}
