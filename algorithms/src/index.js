@@ -1,22 +1,15 @@
+import fs from 'fs';
+import path from 'path';
+
 import Room from './Room';
 import RoomNames from './RoomNames';
-import { findRoom, toMinute } from './helpers';
+import reduceRoom from './ReduceRooms';
 
 const courses = require('../data/details.json');
 const rooms = RoomNames.map(name => new Room(name));
 
-courses.forEach(course => {
-  course.meeting.forEach(meet => {
-    const index = findRoom(meet.room, rooms);
+reduceRoom(rooms, courses);
 
-    console.log(rooms);
+const outputPath = path.join(__dirname, '..', 'output', 'room_time.json');
 
-    if (meet.day.length === 1) {
-      rooms[index].reduce(meet.day, meet.time.map(i => toMinute(i)));
-    } else {
-      meet.day.split('').forEach(day => {
-        rooms[index].reduce(day, meet.time.map(i => toMinute(i)));
-      });
-    }
-  });
-});
+fs.writeFile(outputPath, JSON.stringify(rooms, null, 2), 'utf-8');

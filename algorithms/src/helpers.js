@@ -18,7 +18,7 @@ export function findRoom(name, arr) {
       return i;
     }
   }
-  return false;
+  return -1;
 }
 
 // convert string time to minute. eg. toMinute('10:00') => 600
