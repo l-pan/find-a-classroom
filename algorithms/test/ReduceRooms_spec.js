@@ -10,8 +10,7 @@ describe('reduceRoom', () => {
     reduceRoom(rooms, courses);
 
     expect(rooms[0].time.M).to.deep.equal([
-      [0, 495],
-      [945, 1440],
+      [945, 1095],
     ]);
   });
 });

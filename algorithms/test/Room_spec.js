@@ -6,12 +6,12 @@ describe('a room', () => {
     // initialize a room with name 'A-211'
     const myRoom = new Room('A-211');
 
-    // have a class from 8 AM to 9 AM on Monday
-    myRoom.reduce('M', [480, 540]);
+    // have a class from 9 AM to 10 AM on Monday
+    myRoom.reduce('M', [540, 600]);
 
     expect(myRoom.time.M).to.deep.equal([
-      [0, 480],
-      [540, 1440],
+      [495, 540],
+      [600, 1095],
     ]);
   });
 
@@ -19,15 +19,13 @@ describe('a room', () => {
     // initialize a room with name 'A-211'
     const myRoom = new Room('A-211');
 
-    myRoom.reduce('T', [480, 540]);
-    myRoom.reduce('T', [100, 140]);
+    myRoom.reduce('T', [540, 600]);
     myRoom.reduce('T', [900, 1000]);
 
     expect(myRoom.time.T).to.deep.equal([
-      [0, 100],
-      [140, 480],
-      [540, 900],
-      [1000, 1440],
+      [495, 540],
+      [600, 900],
+      [1000, 1095],
     ]);
   });
 
@@ -35,13 +33,13 @@ describe('a room', () => {
     // initialize a room with name 'A-211'
     const myRoom = new Room('A-211');
 
-    myRoom.reduce('T', [480, 540]);
-    myRoom.reduce('T', [100, 140]);
-    myRoom.reduce('T', [140, 480]);
+    myRoom.reduce('H', [540, 600]);
+    myRoom.reduce('H', [900, 1000]);
+    myRoom.reduce('H', [600, 900]);
 
-    expect(myRoom.time.T).to.deep.equal([
-      [0, 100],
-      [540, 1440],
+    expect(myRoom.time.H).to.deep.equal([
+      [495, 540],
+      [1000, 1095],
     ]);
   });
 
@@ -49,17 +47,15 @@ describe('a room', () => {
     // initialize a room with name 'A-211'
     const myRoom = new Room('A-211');
 
-    myRoom.reduce('F', [480, 540]);
-    myRoom.reduce('F', [480, 540]);
-    myRoom.reduce('F', [100, 140]);
-    myRoom.reduce('F', [900, 1000]);
-    myRoom.reduce('F', [480, 540]);
+    myRoom.reduce('T', [540, 600]);
+    myRoom.reduce('T', [900, 1000]);
+    myRoom.reduce('T', [900, 1000]);
+    myRoom.reduce('T', [540, 600]);
 
-    expect(myRoom.time.F).to.deep.equal([
-      [0, 100],
-      [140, 480],
-      [540, 900],
-      [1000, 1440],
+    expect(myRoom.time.T).to.deep.equal([
+      [495, 540],
+      [600, 900],
+      [1000, 1095],
     ]);
   });
 });

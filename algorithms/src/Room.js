@@ -5,12 +5,13 @@ class Room {
   constructor(name) {
     this.name = name;
     // represented in minutes => 24h * 60 min/h = 1440
+    // school starts at 8:15 and ends at 18:15
     this.time = {
-      M: [[0, 1440]],
-      T: [[0, 1440]],
-      W: [[0, 1440]],
-      H: [[0, 1440]],
-      F: [[0, 1440]],
+      M: [[495, 1095]],
+      T: [[495, 1095]],
+      W: [[495, 1095]],
+      H: [[495, 1095]],
+      F: [[495, 1095]],
     };
   }
 
@@ -20,14 +21,25 @@ class Room {
 
     for (let i = 0; i < schedule.length; i++) {
       // if the interval entered is a subset of an interval of SCHEDULE
-      if (interval[0] > schedule[i][0] && interval[1] < schedule[i][1]) {
+      if (interval[0] >= schedule[i][0] && interval[1] <= schedule[i][1]) {
         const front = schedule.slice(0, i);
         const back = schedule.slice(i + 1, schedule.length);
+        let newArr;
 
-        this.time[day] = front.concat([
-          [schedule[i][0], interval[0]],
-          [interval[1], schedule[i][1]],
-        ]).concat(back);
+        if (interval[0] === schedule[i][0] && interval[1] !== schedule[i][1]) {
+          newArr = [[interval[1], schedule[i][1]]];
+        } else if (interval[0] !== schedule[i][0] && interval[1] === schedule[i][1]) {
+          newArr = [[schedule[i][0], interval[0]]];
+        } else if (interval[0] === schedule[i][0] && interval[1] === schedule[i][1]) {
+          newArr = [];
+        } else {
+          newArr = [
+            [schedule[i][0], interval[0]],
+            [interval[1], schedule[i][1]],
+          ];
+        }
+
+        this.time[day] = front.concat(newArr).concat(back);
 
         break;
       }
