@@ -40,14 +40,6 @@ class Room {
         }
 
         this.time[day] = front.concat(newArr).concat(back);
-
-        break;
-      }
-
-      if (interval[0] === schedule[i][0] && interval[1] === schedule[i][1]) {
-        // if the two are the same, remove the entire interval
-        this.time[day] = schedule.slice(0, i).concat(schedule.slice(i + 1, schedule.length));
-
         break;
       }
     }
