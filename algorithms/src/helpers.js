@@ -26,3 +26,10 @@ export function toMinute(string) {
   const arr = string.split(':');
   return arr[0] * 60 + arr[1] * 1;
 }
+
+export function toTime(minute) {
+  const hours = minute / 60 === 24 ? '0' : Math.floor(minute / 60);
+  const mins = minute % 60 ? minute % 60 : '00';
+
+  return `${hours}:${mins}`;
+}

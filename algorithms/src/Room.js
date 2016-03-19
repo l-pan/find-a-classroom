@@ -1,3 +1,5 @@
+import { toTime } from './helpers';
+
 class Room {
 
   constructor(name) {
@@ -12,6 +14,7 @@ class Room {
     };
   }
 
+  // inspired by redux's immutable state tree concept ;)
   reduce(day, interval) {
     const schedule = this.time[day];
 
@@ -35,6 +38,14 @@ class Room {
 
         break;
       }
+    }
+  }
+
+  // convert minute to human-readable time format
+  toHours() {
+    for (const key in this.time) {
+      if (!this.time.hasOwnProperty(key)) continue;
+      this.time[key] = this.time[key].map(i => i.map(j => toTime(j)));
     }
   }
 }
