@@ -1,0 +1,15 @@
+import React, { PropTypes } from 'react';
+
+function App(props) {
+  return (
+    <div>
+      { props.children }
+    </div>
+  );
+}
+
+App.propTypes = {
+  children: PropTypes.object.isRequired,
+};
+
+export default App;
