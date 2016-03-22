@@ -3,6 +3,9 @@ import routes from '../shared/routes';
 import { render } from 'react-dom';
 import { Router, browserHistory } from 'react-router';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 const history = browserHistory;
 const dest = document.getElementById('root');
 

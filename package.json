@@ -7,6 +7,7 @@
     "start:prod": "cross-env NODE_ENV=production node index.js",
     "bs": "npm run clean && npm run build && npm run start:prod",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js && npm run minify",
+    "minify": "cleancss -o static/css/app.min.css static/css/app.css",
     "clean": "rimraf static/dist",
     "slate": "rimraf node_modules && npm install",
     "lint": "eslint client server shared"
@@ -30,9 +31,11 @@
     "express": "^4.13.4",
     "history": "^1.17.0",
     "isomorphic-fetch": "^2.2.1",
+    "material-ui": "^0.15.0-alpha.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-router": "^2.0.0-rc5"
+    "react-router": "^2.0.0-rc5",
+    "react-tap-event-plugin": "^0.2.2"
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0-beta6",
