@@ -1,6 +1,14 @@
 # Find a Classroom
 A smart web app that tells you which classrooms are free at a given time.
 
+## Installation
+```bash
+$ git clone https://github.com/lorix-lpan/find-a-classroom
+$ cd find-a-classroom
+$ npm install
+$ npm start # to run the server
+```
+
 #### Note
 This app is made for students at Marianopolis College ONLY
 
