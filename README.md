@@ -1,6 +1,9 @@
 # Find a Classroom
 A smart web app that tells you which classrooms are free at a given time.
 
+# Deprecation notice
+This project is currently maintained by Robert Riachi and Michel Ma. See their [fork](https://github.com/RobertRiachi/find-a-classroom) instead. 
+
 ## Installation
 ```bash
 $ git clone https://github.com/lorix-lpan/find-a-classroom
