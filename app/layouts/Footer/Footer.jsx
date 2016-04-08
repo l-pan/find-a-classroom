@@ -1,5 +1,5 @@
 import React from 'react';
-import { blue100 } from 'material-ui/lib/styles/colors';
+import { blue300 } from 'material-ui/lib/styles/colors';
 
 const contStyle = {
   position: 'absolute',
@@ -9,12 +9,12 @@ const contStyle = {
 
 const textStyle = {
   fontSize: '0.8em',
-  color: blue100,
+  color: blue300,
   paddingRight: '2em',
 };
 
 const hrefStyle = {
-  color: blue100,
+  color: blue300,
 };
 
 function Footer() {
@@ -22,8 +22,8 @@ function Footer() {
     <div style={contStyle} className="row end-xs">
       <p style={textStyle}>
         A project by &nbsp;
-        <a style={hrefStyle} href={'https://github.com/lorix-lpan'} target="_blank">
-          @lorix-lpan
+        <a style={hrefStyle} href={'http://lawry.io'} target="_blank">
+          Lawrence Pan
         </a>
       </p>
     </div>

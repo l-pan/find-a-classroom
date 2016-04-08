@@ -22,7 +22,7 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
 // Import required modules
-import routes from '../shared/routes';
+import routes from '../app/routes';
 import serverConfig from './config';
 
 // Apply server public assets and routes
@@ -40,8 +40,6 @@ const renderFullPage = (html) => {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Find a Classroom</title>
         <link rel="stylesheet" href=${cssPath} />
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'/>
-        <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
       </head>
       <body>
         <div id="root">${html}</div>
