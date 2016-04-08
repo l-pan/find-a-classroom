@@ -23,12 +23,10 @@ import { match, RouterContext } from 'react-router';
 
 // Import required modules
 import routes from '../shared/routes';
-import posts from './api/room.routes';
 import serverConfig from './config';
 
 // Apply server public assets and routes
 app.use(Express.static(path.resolve(__dirname, '../static')));
-app.use('/api', posts);
 
 // Render Initial HTML
 const renderFullPage = (html) => {
