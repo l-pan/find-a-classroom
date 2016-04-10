@@ -30,7 +30,9 @@ const RoomList = (props) => (
           displayRowCheckbox={false}
           showRowHover
         >
-          {props.freeRooms.map((room, i) => <FreeRoom key={i} num={i + 1} room={room} />)}
+          {props.freeRooms.map((room, i) => (
+            <FreeRoom key={i} search={props.search} num={i + 1} room={room} />
+          ))}
         </TableBody>
       </Table>
     </div>

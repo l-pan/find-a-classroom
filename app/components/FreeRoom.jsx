@@ -5,7 +5,11 @@ import TableRowColumn from 'material-ui/lib/table/table-row-column';
 function FreeRoom(props) {
   return (
     <TableRow>
-      <TableRowColumn>{props.num}</TableRowColumn>
+      {(() => {
+        if (!props.search) {
+          return <TableRowColumn>{props.num}</TableRowColumn>;
+        }
+      })()}
       <TableRowColumn>{props.room.name}</TableRowColumn>
       <TableRowColumn>{`${props.room.remainedTime} minutes left`}</TableRowColumn>
     </TableRow>
@@ -14,6 +18,7 @@ function FreeRoom(props) {
 
 FreeRoom.propTypes = {
   num: PropTypes.number.isRequired,
+  search: PropTypes.bool,
   room: PropTypes.shape({
     endTime: PropTypes.number.isRequired,
     remainedTime: PropTypes.number.isRequired,
