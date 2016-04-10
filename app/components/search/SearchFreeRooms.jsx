@@ -116,7 +116,7 @@ class SearchFreeRooms extends Component {
     const styles = {
       button: {
         position: 'absolute',
-        top: '13%',
+        bottom: '6%',
         right: '3%',
       },
     };
