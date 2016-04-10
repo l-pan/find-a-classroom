@@ -3,13 +3,17 @@ import getRooms from '../helpers/getRooms';
 import getTime from '../helpers/getTime';
 
 import RoomList from './RoomList';
+import SearchFreeRooms from './search/SearchFreeRooms';
 
 // Component takes currentTime:string and day:char -> a list of room objects
 class GetFreeRooms extends Component {
 
   constructor() {
     super();
-    this.state = { freeRooms: [] };
+    this.state = {
+      freeRooms: [],
+      allRooms: [],
+    };
     this.filterRooms = this.filterRooms.bind(this);
     this.remainedTime = this.remainedTime.bind(this);
   }
@@ -86,6 +90,7 @@ class GetFreeRooms extends Component {
     return (
       <div>
         <RoomList freeRooms={this.state.freeRooms} />
+        <SearchFreeRooms allRooms={this.state.allRooms} />
       </div>
     );
   }
