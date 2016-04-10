@@ -37,6 +37,9 @@ class NavBar extends Component {
             <a href="https://github.com/lorix-lpan/find-a-classroom" style={{ textDecoration: 'none' }}>
               <MenuItem primaryText="View Source" />
             </a>
+            <a href="https://github.com/lorix-lpan/find-a-classroom/issues" style={{ textDecoration: 'none' }}>
+              <MenuItem primaryText="Report an Issue" />
+            </a>
           </IconMenu>
         }
       />
