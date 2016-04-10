@@ -4,7 +4,7 @@
   "description": "Boilerplate project for building Isomorphic apps using React and Redux",
   "scripts": {
     "start": "cross-env NODE_ENV=development node index.js",
-    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "start:prod": "sudo systemctl restart find-a-classroom.service",
     "bs": "npm run clean && npm run build && npm run start:prod",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js && npm run minify",
     "minify": "cleancss -o static/css/app.min.css static/css/app.css",

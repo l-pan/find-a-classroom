@@ -1,3 +1,7 @@
+# Mern
+/static/dist/
+/static/css/*.min.*
+
 # Logs
 logs
 *.log
