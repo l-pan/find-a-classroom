@@ -24,9 +24,11 @@ import { match, RouterContext } from 'react-router';
 // Import required modules
 import routes from '../app/routes';
 import serverConfig from './config';
+import roomsRoutes from './rooms/rooms.route';
 
 // Apply server public assets and routes
 app.use(Express.static(path.resolve(__dirname, '../static')));
+app.use('/rooms', roomsRoutes);
 
 // Render Initial HTML
 const renderFullPage = (html) => {

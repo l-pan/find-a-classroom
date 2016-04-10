@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 import AppBar from 'material-ui/lib/app-bar';
-import LeftNav from 'material-ui/lib/left-nav';
-import MenuItem from 'material-ui/lib/menus/menu-item';
 import IconButton from 'material-ui/lib/icon-button';
+import IconMenu from 'material-ui/lib/menus/icon-menu';
+import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
+import MenuItem from 'material-ui/lib/menus/menu-item';
 
 import HomeIcon from 'material-ui/lib/svg-icons/action/room';
 
@@ -22,22 +23,23 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div>
-        <AppBar
-          title="Find a Classroom"
-          iconElementLeft={<IconButton><HomeIcon /></IconButton>}
-          // onLeftIconButtonTouchTap={this.handleToggle}
-          // iconElementRight={<IconButton iconClassName="muidocs-icon-custom-github" />}
-        />
-        <LeftNav
-          docked={false}
-          open={this.state.open}
-          onRequestChange={this.handleToggle}
-        >
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
-        </LeftNav>
-      </div>
+      <AppBar
+        title="Find a Classroom"
+        iconElementLeft={<IconButton><HomeIcon /></IconButton>}
+        iconElementRight={
+          <IconMenu
+            iconButtonElement={
+              <IconButton><MoreVertIcon /></IconButton>
+            }
+            targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+          >
+            <a href="https://github.com/lorix-lpan/find-a-classroom" style={{ textDecoration: 'none' }}>
+              <MenuItem primaryText="View Source" />
+            </a>
+          </IconMenu>
+        }
+      />
     );
   }
 }

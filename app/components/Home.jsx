@@ -1,8 +1,13 @@
 import React from 'react';
+import LiveTime from './LiveTime';
+import GetFreeRooms from './GetFreeRooms';
 
 function Home() {
   return (
-    <h1>Hello World</h1>
+    <div>
+      <LiveTime />
+      <GetFreeRooms />
+    </div>
   );
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { blue300 } from 'material-ui/lib/styles/colors';
 
 const contStyle = {
   position: 'absolute',
@@ -9,12 +8,12 @@ const contStyle = {
 
 const textStyle = {
   fontSize: '0.8em',
-  color: blue300,
+  color: '#727272',
   paddingRight: '2em',
 };
 
 const hrefStyle = {
-  color: blue300,
+  color: '#727272',
 };
 
 function Footer() {
