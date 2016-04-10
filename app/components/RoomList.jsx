@@ -14,7 +14,6 @@ const RoomList = (props) => (
           </div>
         );
       }
-      return null;
     })()}
     <div className="col-md-10 col-xs-12">
       <Table>
