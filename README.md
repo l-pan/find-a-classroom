@@ -1,4 +1,4 @@
-# Find a Classroom
+# [Find a Classroom](http://findroom.lawry.io)
 A smart web app that tells you which classrooms are free at a given time.
 
 ## Installation
