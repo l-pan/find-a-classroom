@@ -78,15 +78,15 @@ class SearchFreeRooms extends Component {
   render() {
     const actions = [
       <FlatButton
+        label="Cancel"
+        secondary
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
         label="Search"
         primary
         keyboardFocused
         onTouchTap={this.filterRooms}
-      />,
-      <FlatButton
-        label="Cancel"
-        secondary
-        onTouchTap={this.handleClose}
       />,
     ];
 
@@ -104,7 +104,7 @@ class SearchFreeRooms extends Component {
           <ActionSearch />
         </FloatingActionButton>
         <Dialog
-          title="Search"
+          title="Find Available Classrooms at Any Time!"
           actions={actions}
           modal={false}
           open={this.state.open}

@@ -40,8 +40,10 @@ const renderFullPage = (html) => {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Find an empty classroom at Marianopolis College">
+        <meta name="author" content="Lawrence Pan">
         <link rel="shortcut icon" href="/img/icon.png" />
-        <title>Find a Classroom</title>
+        <title>Marianopolis Empty Classroom Finder</title>
         <link rel="stylesheet" href=${cssPath} />
       </head>
       <body>
