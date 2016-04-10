@@ -8,7 +8,11 @@ const RoomList = (props) => (
   <div className="row center-xs" style={{ marginTop: '2em' }}>
     {(() => {
       if (props.freeRooms.length === 0) {
-        return <h1>No Classroom is available</h1>;
+        return (
+          <div className="col-xs-10" style={{ marginTop: '4em' }}>
+            <h1>No Classroom is available</h1>
+          </div>
+        );
       }
       return null;
     })()}
