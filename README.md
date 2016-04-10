@@ -10,17 +10,13 @@ $ npm start # to run the server
 ```
 
 #### Note
-This app is made for students at Marianopolis College ONLY
+This app is currently ONLY supports Marianopolis Student
 
 ## What it does?
 Need an empty classroom to chill with friends or do homework? "Find a Classroom" got your back. With a single click, "Find a Classroom" will display all available classrooms at the given moment!
 
-### Frontend
-* Send current time to the server -> eg. GET /api?time=4:40
-* Display server's response on the DOM
-
-### Backend
-* According to the time given by the client:
-  * Returns a list of classrooms currently available
-  * Returns a list of classrooms that will be available in under 30 minutes
-* Each classroom object contains the amount of time left.
+## Features
+* Show current available classrooms
+* Show available classrooms according to user input
+* Check in/out classroom using socket.io
+* Click into each classroom to see the availability for this particular room
