@@ -27,6 +27,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "babel-core": "^6.4.5",
+    "babel-plugin-transform-object-assign": "^6.5.0",
     "body-parser": "^1.14.2",
     "express": "^4.13.4",
     "flexboxgrid": "^6.3.0",
