@@ -9,6 +9,7 @@ import MenuItem from 'material-ui/lib/menus/menu-item';
 
 import RoomList from '../RoomList';
 import getRooms from '../../helpers/getRooms';
+import getFreeRooms from '../../helpers/getFreeRooms';
 import matchDay from '../../helpers/matchDay';
 
 class SearchFreeRooms extends Component {
@@ -65,37 +66,13 @@ class SearchFreeRooms extends Component {
   }
 
   filterRooms() {
-    const time = this.state.time;
-    const day = matchDay(this.state.value)[0];
-    const rooms = this.allRooms;
-    let freeRooms = [];
+    const freeRooms = getFreeRooms(this.state.time, matchDay(this.state.value)[0], this.allRooms);
 
-    rooms.forEach(room => {
-      room.time[day].forEach(timeSlot => {
-        if (time >= timeSlot[0] && time <= timeSlot[1]) {
-          freeRooms.push(Object.assign({}, room, { endTime: timeSlot[1] }));
-        }
-      });
-    });
-    if (freeRooms.length === 0) {
-      this.setState({ searchFailed: true });
+    if (freeRooms.length > 0) {
+      this.setState({ freeRooms });
     } else {
-      // sort rooms according to remained time
-      freeRooms = freeRooms.
-        map(freeRoom => {
-          const remainedTime = freeRoom.endTime - this.state.time;
-          return Object.assign({}, freeRoom, { remainedTime });
-        }).
-        sort((a, b) => {
-          if (a.remainedTime > b.remainedTime) {
-            return -1;
-          } else if (a.remainedTime < b.remainedTime) {
-            return 1;
-          }
-          return 0;
-        });
+      this.setState({ searchFailed: true });
     }
-    this.setState({ freeRooms });
   }
 
   render() {
@@ -115,7 +92,7 @@ class SearchFreeRooms extends Component {
 
     const styles = {
       button: {
-        position: 'absolute',
+        position: 'fixed',
         bottom: '6%',
         right: '3%',
       },
