@@ -16,13 +16,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-// React And Redux Setup
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { match, RouterContext } from 'react-router';
-
-// Import required modules
-import routes from '../app/routes';
 import serverConfig from './config';
 import roomsRoutes from './rooms/rooms.route';
 
@@ -31,7 +24,7 @@ app.use(Express.static(path.resolve(__dirname, '../static')));
 app.use('/rooms', roomsRoutes);
 
 // Render Initial HTML
-const renderFullPage = (html) => {
+const renderFullPage = (initialState) => {
   const cssPath = process.env.NODE_ENV === 'production' ? '/css/app.min.css' : '/css/app.css';
   return `
     <!doctype html>
@@ -47,46 +40,29 @@ const renderFullPage = (html) => {
         <link rel="stylesheet" href=${cssPath} />
       </head>
       <body>
-        <div id="root">${html}</div>
+        <div id="root"></div>
         <script src="/dist/bundle.js"></script>
+        <script>
+          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
+        </script>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        
+
           ga('create', 'UA-71554871-5', 'auto');
           ga('send', 'pageview');
-        
+
         </script>
       </body>
     </html>
   `;
 };
 
-// Server Side Rendering based on routes matched by React-router.
-app.use((req, res, next) => {
-  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-    if (err) {
-      return res.status(500).end('Internal server error');
-    }
-
-    if (redirectLocation) {
-      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-    }
-
-    if (!renderProps) {
-      return next();
-    }
-
-    const initialView = renderToString(
-      <RouterContext {...renderProps} />
-    );
-
-    res.status(200).end(renderFullPage(initialView));
-
-    return 1;
-  });
+app.get('/', (req, res) => {
+  const initialState = require('../algorithms/output/room_time.json');
+  res.send(renderFullPage(initialState));
 });
 
 // start app
